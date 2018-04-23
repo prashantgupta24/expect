@@ -7,7 +7,7 @@ send_user "\n"
 stty echo
 set pw $expect_out(1,string)
 
-set f [open "hosts-fra.txt"]
+set f [open "hosts.txt"]
 set hosts [split [read $f] "\n"]
 close $f
 
