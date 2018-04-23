@@ -12,12 +12,12 @@ set hosts [split [read $f] "\n"]
 close $f
 
 foreach host $hosts {
-    spawn ssh -oStrictHostKeyChecking=no guptapra@$host
+    spawn ssh -oStrictHostKeyChecking=no hostname@$host
     expect "Password*"
     send "$pw\r"
     expect "*~$*"
     send "sudo -S service tomcat7 restart\r"
-    expect "*password for guptapra:"
+    expect "*password for hostname:"
     send "$pw\r"
     expect "*~$*"
     send "exit\r"
